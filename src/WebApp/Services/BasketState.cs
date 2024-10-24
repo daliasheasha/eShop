@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 using eShop.WebAppComponents.Catalog;
 using eShop.WebAppComponents.Services;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace eShop.WebApp.Services;
 
@@ -60,14 +60,7 @@ public class BasketState(
         var existingItems = (await FetchBasketItemsAsync()).ToList();
         if (existingItems.FirstOrDefault(row => row.ProductId == productId) is { } row)
         {
-            if (quantity > 0)
-            {
-                row.Quantity = quantity;
-            }
-            else
-            {
-                existingItems.Remove(row);
-            }
+            row.Quantity = quantity;
 
             _cachedBasket = null;
             await basketService.UpdateBasketAsync(existingItems.Select(i => new BasketQuantity(i.ProductId, i.Quantity)).ToList());
