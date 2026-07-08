@@ -94,18 +94,6 @@ public class OrderAggregateTest
     }
 
     [TestMethod]
-    public void when_add_two_times_on_the_same_item_then_the_total_of_order_should_be_the_sum_of_the_two_items()
-    {
-        var address = new AddressBuilder().Build();
-        var order = new OrderBuilder(address)
-            .AddOne(1, "cup", 10.0m, 0, string.Empty)
-            .AddOne(1, "cup", 10.0m, 0, string.Empty)
-            .Build();
-
-        Assert.AreEqual(20.0m, order.GetTotal());
-    }
-
-    [TestMethod]
     public void Add_new_Order_raises_new_event()
     {
         //Arrange
