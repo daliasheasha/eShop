@@ -34,12 +34,12 @@ public class OrderItem
     {
         if (units <= 0)
         {
-            throw new OrderingDomainException("Invalid number of units");
+            throw new OrderingDomainException("Invalid number of units for an order item");
         }
 
         if ((unitPrice * units) < discount)
         {
-            throw new OrderingDomainException("The total of order item is lower than applied discount");
+            throw new OrderingDomainException("Order item total cannot be lower than the applied discount");
         }
 
         ProductId = productId;
