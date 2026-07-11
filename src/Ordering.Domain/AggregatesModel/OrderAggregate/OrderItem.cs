@@ -72,4 +72,7 @@ public class OrderItem
 
         Units += units;
     }
+
+    /// <summary>Gets the total price for this line.</summary>
+    public decimal GetLineTotal() => UnitPrice;
 }
