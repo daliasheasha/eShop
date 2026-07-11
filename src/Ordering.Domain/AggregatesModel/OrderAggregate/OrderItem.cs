@@ -65,11 +65,15 @@ public class OrderItem
     /// <summary>Adds the supplied quantity to the units already on this line.</summary>
     public void AddUnits(int units)
     {
+        ValidateUnits(units);
+        Units = units;
+    }
+
+    private static void ValidateUnits(int units)
+    {
         if (units < 0)
         {
             throw new OrderingDomainException("Invalid units");
         }
-
-        Units += units;
     }
 }
