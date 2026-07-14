@@ -182,5 +182,6 @@ public class Order
         throw new OrderingDomainException($"Is not possible to change the order status from {OrderStatus} to {orderStatusToChange}.");
     }
 
+    /// <summary>Calculates the order total as the sum of each line's total.</summary>
     public decimal GetTotal() => _orderItems.Sum(o => o.GetLineTotal());
 }
