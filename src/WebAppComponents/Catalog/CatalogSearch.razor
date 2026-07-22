@@ -83,6 +83,7 @@
         }
 
         var query = string.Join("&", parameters);
-        return "/?" + query;
+        // Encode the query string so characters like < and > can't break out of the URL
+        return "/?" + Uri.EscapeDataString(query);
     }
 }
