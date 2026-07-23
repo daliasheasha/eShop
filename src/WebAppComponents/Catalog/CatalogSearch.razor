@@ -65,6 +65,9 @@
 
     private string TypeUri(int? typeId) => BuildCatalogUri(BrandId, typeId);
 
+    /// <summary>
+    /// Builds a relative catalog URL that applies the selected brand and type filters.
+    /// </summary>
     private static string BuildCatalogUri(int? brandId, int? typeId)
     {
         var parameters = new List<string>();
